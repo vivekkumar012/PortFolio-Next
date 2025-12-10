@@ -1,5 +1,6 @@
 "use client"
 
+import Link from 'next/link';
 import React, { useState, ChangeEvent } from 'react'
 import { BiEnvelope, BiMap, BiPhone } from 'react-icons/bi'
 import { BsGithub, BsLinkedin, BsSend, BsTwitterX } from 'react-icons/bs'
@@ -88,10 +89,14 @@ const Contact = () => {
 
               <div className='flex items-center mt-8 space-x-3'>
                 <div className='w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer flex-col hover:bg-blue-950 transition-all duration-300'>
-                    <BsGithub className='text-white w-6 h-6' />
+                    <Link href={"https://github.com/vivekkumar012"}>
+                      <BsGithub className='text-white w-6 h-6' />
+                    </Link>
                 </div>
                 <div className='w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer flex-col hover:bg-blue-800 transition-all duration-300'>
-                    <BsLinkedin className='text-white w-6 h-6' />
+                    <Link href={"https://www.linkedin.com/in/vivekumar7510/"}>
+                      <BsLinkedin className='text-white w-6 h-6' />
+                    </Link>
                 </div>
                 <div className='w-14 h-14 bg-blue-950/60 rounded-full flex items-center justify-center cursor-pointer flex-col hover:bg-black transition-all duration-300'>
                     <BsTwitterX className='text-white w-6 h-6' />
