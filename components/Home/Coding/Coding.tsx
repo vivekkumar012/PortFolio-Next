@@ -19,17 +19,47 @@ const PLATFORM_COLORS = {
   default: "from-cyan-500 to-blue-600"
 };
 
+// Type definitions
+interface RawPlatform {
+  name?: string;
+  handle?: string;
+  rating?: number | null;
+  maxRating?: number | null;
+  rank?: string | null;
+  avatar?: string | null;
+  solved?: number | Record<string, number> | null;
+  totalProblems?: number | null;
+  [key: string]: any;
+}
+
+interface NormalizedPlatform {
+  name: string;
+  handle: string | null;
+  rating: number | null;
+  maxRating: number | null;
+  rank: string | null;
+  avatar: string | null;
+  solved: number | Record<string, number> | null;
+  totalProblems: number | null;
+  raw: RawPlatform;
+}
+
+interface ApiResponse {
+  platforms?: RawPlatform[];
+  [key: string]: any;
+}
+
 export default function CodingClient() {
-  const [platforms, setPlatforms] = useState(null);
+  const [platforms, setPlatforms] = useState<NormalizedPlatform[] | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let mounted = true;
     fetch("/api/platforms")
       .then((r) => r.json())
-      .then((j) => {
+      .then((j: ApiResponse) => {
         if (!mounted) return;
-        const normalized = (j.platforms || []).map((p) => ({
+        const normalized = (j.platforms || []).map((p: RawPlatform): NormalizedPlatform => ({
           name: p.name || "Unknown",
           handle: p.handle || null,
           rating: p.rating ?? null,
@@ -76,16 +106,20 @@ export default function CodingClient() {
 
 /* ---------- Components ---------- */
 
-function Card({ platform: p }) {
+interface CardProps {
+  platform: NormalizedPlatform;
+}
+
+function Card({ platform: p }: CardProps) {
   const nameKey = (p.name || "").toLowerCase();
-  const avatar = p.avatar || FALLBACK_LOGOS[nameKey] || FALLBACK_LOGOS.default;
-  const gradientColor = PLATFORM_COLORS[nameKey] || PLATFORM_COLORS.default;
+  const avatar = p.avatar || FALLBACK_LOGOS[nameKey as keyof typeof FALLBACK_LOGOS] || FALLBACK_LOGOS.default;
+  const gradientColor = PLATFORM_COLORS[nameKey as keyof typeof PLATFORM_COLORS] || PLATFORM_COLORS.default;
 
   const solvedTotal = p.solved
     ? (typeof p.solved === "object" ? Object.values(p.solved).reduce((a,b)=>a+(+b||0),0) : +p.solved || 0)
     : null;
   const totalProblems = p.totalProblems || 0;
-  const progressPct = totalProblems ? Math.min(100, Math.round((solvedTotal / totalProblems) * 100)) : (solvedTotal ? 100 : 0);
+  const progressPct = totalProblems ? Math.min(100, Math.round((solvedTotal! / totalProblems) * 100)) : (solvedTotal ? 100 : 0);
 
   const primary = p.rating ?? (solvedTotal ?? "—");
   const secondary = p.rank ?? (p.handle ?? "—");
@@ -231,7 +265,7 @@ function EmptyState() {
 
 /* ---------- Helpers ---------- */
 
-function profileUrl(p) {
+function profileUrl(p: NormalizedPlatform): string {
   if (!p) return "#";
   const name = (p.name || "").toLowerCase();
   const h = p.handle || "";
