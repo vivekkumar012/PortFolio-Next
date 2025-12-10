@@ -63,7 +63,7 @@ const Projects: React.FC = () => {
             Recent Projects
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            A small selection of projects I've worked on
+            A small selection of projects I&apos;ve worked on
           </p>
         </div>
 
