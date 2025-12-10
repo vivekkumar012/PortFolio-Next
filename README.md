@@ -1,1 +1,1 @@
-This Portfolio is Currently under Development, Keep Patient to watch the best portfolio of GGU Bilaspur
+This Portfolio is build using NextJS.
