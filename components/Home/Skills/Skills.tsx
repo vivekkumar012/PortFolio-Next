@@ -23,7 +23,7 @@ const Skills = () => {
   const duplicatedSkills = [...skills, ...skills, ...skills];
 
   return (
-    <div className="min-h-screen  py-16 px-4 overflow-hidden" id='skills'>
+    <div className=" py-16 px-4 overflow-hidden" id='skills'>
       <div className="text-center mb-16">
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
           My <span className="text-cyan-400">Skills</span>

@@ -1,13 +1,17 @@
 import React from 'react'
+import { FaCodepen, FaReact } from 'react-icons/fa'
+import { BsDatabase } from 'react-icons/bs'
+import { BiBadge } from 'react-icons/bi'
 import { IconType } from 'react-icons';
 
-type Props = {
+type ResumeCardProps = {
     role: string;
     Icon: IconType;
     date?: string;
+    description: string;
 }
 
-const ResumeCard = ({Icon, role, date}: Props) => {
+const ResumeCard = ({Icon, role, date, description}: ResumeCardProps) => {
   return (
     <div className='mb-6'>
       <div className='flex items-start space-x-6 bg-blue-950/20 transition-all duration-300 p-4 sm:p-8 rounded-md'>
@@ -21,7 +25,7 @@ const ResumeCard = ({Icon, role, date}: Props) => {
                 </h1>
             )}
             <h1 className='text-gray-200 text-xl sm:text-2xl font-semibold'>{role}</h1>
-            <p className='text-gray-300 text-sm sm:text-base pt-3'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum blanditiis ipsum incidunt fugiat molestiae. Obcaecati possimus vitae velit. Quo adipisci dolorum ipsum, asperiores quam itaque qui soluta porro sit quos.</p>
+            <p className='text-gray-300 text-sm sm:text-base pt-3'>{description}</p>
         </div>
       </div>
     </div>

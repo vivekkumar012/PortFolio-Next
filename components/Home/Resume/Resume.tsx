@@ -17,10 +17,25 @@ const Resume = () => {
               My Work <span className='text-cyan-200'>Experience</span>
             </h1>
 
-            <div className='mt-6 space-y-6'>
-              <ResumeCard Icon={FaCodepen} role='Full Stack Developer' />
-              <ResumeCard Icon={FaReact} role='Frontend Developer' />
-              <ResumeCard Icon={BsDatabase} role='Backend Developer' />
+            <div className='mt-6 space-y-6' data-aos="zoom-in" data-aos-anchor-placement="top-center">
+              <ResumeCard 
+                Icon={FaCodepen} 
+                role='Self Employed - Full Stack Developer'
+                date='Jan 2024 - Present'
+                description='Building modern web applications using React, Node.js, and databases. Specializing in creating responsive, user-friendly interfaces and scalable backend solutions for clients across various industries.'
+              />
+              <ResumeCard 
+                Icon={FaReact} 
+                role='Frontend Developer'
+                date='Aug 2023 - Present'
+                description='Developed interactive and responsive user interfaces using React, TypeScript, and Tailwind CSS. Focused on creating seamless user experiences with modern design patterns and optimal performance.'
+              />
+              <ResumeCard 
+                Icon={BsDatabase} 
+                role='Backend Developer'
+                date='Mar 2023 - Present'
+                description='Designed and implemented RESTful APIs and database architectures using Node.js, Express, and MongoDB. Ensured data integrity, security, and efficient server-side logic for web applications.'
+              />
             </div>
           </div>
 
@@ -33,9 +48,13 @@ const Resume = () => {
               My <span className='text-cyan-200'>Education</span>
             </h1>
 
-            <div className='mt-6 space-y-6'>
-              <ResumeCard Icon={BiBadge} role='Guru Ghasidas University' date='Oct 2023 - July 2027' />
-              
+            <div className='mt-6 space-y-6' data-aos="zoom-out" data-aos-anchor-placement="top-center" data-aos-delay="300">
+              <ResumeCard 
+                Icon={BiBadge} 
+                role='Guru Ghasidas University' 
+                date='Oct 2023 - Jul 2027'
+                description='Pursuing Bachelor of Technology in Computer Science. Gaining strong foundation in data structures, algorithms, software engineering, and web development. Active participant in coding competitions and technical clubs.'
+              />
             </div>
           </div>
         </div>
