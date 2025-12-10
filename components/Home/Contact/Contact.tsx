@@ -1,18 +1,25 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useState, ChangeEvent } from 'react'
 import { BiEnvelope, BiMap, BiPhone } from 'react-icons/bi'
 import { BsGithub, BsLinkedin, BsSend, BsTwitterX } from 'react-icons/bs'
 
+interface FormData {
+  name: string;
+  email: string;
+  mobile: string;
+  message: string;
+}
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     mobile: '',
     message: ''
   })
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
