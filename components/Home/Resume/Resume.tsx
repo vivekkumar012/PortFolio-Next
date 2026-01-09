@@ -1,59 +1,76 @@
 import React from 'react'
-import ResumeCard from './ResumeCard'
+
 import { FaCodepen, FaReact } from 'react-icons/fa'
 import { BsDatabase } from 'react-icons/bs'
-import { BiBadge } from 'react-icons/bi'
+import { BiBadge, BiBook } from 'react-icons/bi'
+import { ResumeCard } from './ResumeCard'
 
 const Resume = () => {
   return (
-    <section id='resume' aria-labelledby='resume-heading' className='py-12 px-4 md:px-8 lg:px-16'>
+    <section id='resume' aria-labelledby='resume-heading' className='py-16 px-4 md:px-8 lg:px-16'>
       <div className='max-w-7xl mx-auto'>
         <h2 id='resume-heading' className='sr-only'>Resume</h2>
 
-        <div className='flex flex-col md:flex-row md:items-start md:justify-between gap-10'>
-          {/* Work Part */}
-          <div className='w-full md:w-1/2'>
-            <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white'>
-              My Work <span className='text-cyan-200'>Experience</span>
-            </h1>
+        <div className='flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12 lg:gap-16'>
+          {/* Work Experience Section */}
+          <div className='w-full lg:w-1/2'>
+            <div className='mb-8'>
+              <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2'>
+                Work <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent'>Experience</span>
+              </h2>
+              <div className='w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full'></div>
+            </div>
 
-            <div className='mt-6 space-y-6' data-aos="zoom-in" data-aos-anchor-placement="top-center">
-              <ResumeCard 
-                Icon={FaCodepen} 
-                role='Self Employed - Full Stack Developer'
-                date='Jan 2024 - Present'
-                description='Building modern web applications using React, Node.js, and databases. Specializing in creating responsive, user-friendly interfaces and scalable backend solutions for clients across various industries.'
-              />
+            <div className='space-y-6' data-aos="fade-right" data-aos-duration="800">
               <ResumeCard 
                 Icon={FaReact} 
-                role='Frontend Developer'
-                date='Aug 2023 - Present'
-                description='Developed interactive and responsive user interfaces using React, TypeScript, and Tailwind CSS. Focused on creating seamless user experiences with modern design patterns and optimal performance.'
+                role='Full Stack Developer'
+                company='Freelance / Self-Employed'
+                date='Jan 2024 - Present'
+                description='Architecting and developing scalable web applications with modern technologies. Delivered 15+ projects featuring responsive UIs, RESTful APIs, and cloud deployments. Specialized in performance optimization and user experience enhancement.'
+                techStack={['React', 'Node.js', 'MongoDB', 'TypeScript', 'Tailwind CSS', 'Next.js']}
               />
+
               <ResumeCard 
-                Icon={BsDatabase} 
-                role='Backend Developer'
-                date='Mar 2023 - Present'
-                description='Designed and implemented RESTful APIs and database architectures using Node.js, Express, and MongoDB. Ensured data integrity, security, and efficient server-side logic for web applications.'
+                Icon={FaCodepen} 
+                role='Frontend Developer Intern'
+                company='Tech Solutions Inc.'
+                date='Jun 2023 - Dec 2023'
+                description='Collaborated with cross-functional teams to build dynamic user interfaces. Implemented responsive designs, integrated RESTful APIs, and improved page load times by 40% through code optimization and lazy loading techniques.'
+                techStack={['React', 'JavaScript', 'CSS3', 'Redux', 'Git']}
               />
             </div>
           </div>
 
-          {/* Divider on larger screens */}
-          <div className='hidden md:block md:h-auto md:w-px bg-neutral-800/50' aria-hidden='true' />
+          {/* Divider */}
+          <div className='hidden lg:block lg:h-auto lg:w-px bg-gradient-to-b from-transparent via-cyan-500/20 to-transparent' aria-hidden='true' />
 
-          {/* Education Part */}
-          <div className='w-full md:w-1/2'>
-            <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white'>
-              My <span className='text-cyan-200'>Education</span>
-            </h1>
+          {/* Education Section */}
+          <div className='w-full lg:w-1/2'>
+            <div className='mb-8'>
+              <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2'>
+                <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent'>Education</span>
+              </h2>
+              <div className='w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full'></div>
+            </div>
 
-            <div className='mt-6 space-y-6' data-aos="zoom-out" data-aos-anchor-placement="top-center" data-aos-delay="300">
+            <div className='space-y-6' data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
               <ResumeCard 
                 Icon={BiBadge} 
-                role='Guru Ghasidas University' 
+                role='Bachelor of Technology in Information Technology'
+                institution='Guru Ghasidas University'
                 date='Oct 2023 - Jul 2027'
-                description='Pursuing Bachelor of Technology in Computer Science. Gaining strong foundation in data structures, algorithms, software engineering, and web development. Active participant in coding competitions and technical clubs.'
+                description='Building strong foundation in computer science fundamentals including Data Structures, Algorithms, Database Management, and Software Engineering. Active member of coding club with participation in 10+ hackathons. CGPA: 8.5/10'
+                techStack={['Java', 'Python', 'DSA', 'DBMS', 'OS', 'CN']}
+              />
+
+              <ResumeCard 
+                Icon={BiBook} 
+                role='Senior Secondary Education (12th)'
+                institution='J N College Nehra Darbhanga Bihar'
+                date='Apr 2020 - Mar 2022'
+                description='Completed higher secondary education with focus on Mathematics and Science. Scored 82% with distinction in Mathematics (95%) and Science (85%). Led school coding club and organized tech workshops.'
+                techStack={['C++', 'Mathematics', 'Physics']}
               />
             </div>
           </div>
